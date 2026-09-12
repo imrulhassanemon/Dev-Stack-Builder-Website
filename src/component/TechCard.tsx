@@ -1,13 +1,27 @@
 import type { Technology } from "../types/types";
-
+import type { Dispatch, SetStateAction } from "react";
 
 type SkillCardProps = {
   technology: Technology;
+  yourStack:Technology[];
+  setYourSack: Dispatch<SetStateAction<Technology[]>>;
 };
 
-export default function SkillCard({ technology }: SkillCardProps) {
+export default function SkillCard({ technology, setYourSack, yourStack }: SkillCardProps) {
+
+
+    const handleYourStack = () => {
+        if(yourStack.includes(technology)){
+            return 
+        }else{
+            const setStack = [...yourStack, technology]
+            setYourSack(setStack)
+        }
+    }
+
+
   return (
-    <div className="group w-[280px] rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div className="group  rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Header */}
       <div className="mb-5 flex items-start justify-between">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50">
@@ -47,7 +61,10 @@ export default function SkillCard({ technology }: SkillCardProps) {
       </div>
 
       {/* Button */}
-      <button className="mt-6 w-full rounded-xl bg-slate-950 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 group-hover:tracking-wide">
+      <button
+        onClick={handleYourStack}
+        className="mt-6 w-full rounded-xl bg-slate-950 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 group-hover:tracking-wide"
+      >
         Add to Stack
       </button>
     </div>

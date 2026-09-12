@@ -14,14 +14,14 @@ const techStackFetch = async (): Promise<Technology[]> => {
 
 function App() {
 
-  const [TechnologiesPromise] = useState(() => techStackFetch());
+  const [technologiesPromise] = useState(() => techStackFetch());
   return (
     <>
       <Navbar/>
       <Banner/>
       <main>
         <Suspense fallback={<h1 className="flex justify-center ">loading....</h1>}>
-            <Technologies TechnologiesPromise={TechnologiesPromise} />
+            <Technologies technologiesPromise={technologiesPromise} />
         </Suspense>
       </main>
     </>

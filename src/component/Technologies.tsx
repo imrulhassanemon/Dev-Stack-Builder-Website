@@ -1,7 +1,8 @@
 import { use, useState } from "react";
 import type { Technology } from "../types/types";
 import TechCard from "./TechCard";
-import YourStack from "./YourStack";
+import YourStack from "./YouStack";
+// import YourStack from "./YourStack";
 
 export interface TechnologiesProps {
   technologiesPromise: Promise<Technology[]>;
