@@ -1,14 +1,28 @@
-import "./App.css";
+import { Suspense, useState } from "react";
 import Banner from "./component/Banner";
 import Navbar from "./component/NavBar";
+import type { Technology } from "./types/types";
+import Technologies from "./component/Technologies";
+
+const techStackFetch = async (): Promise<Technology[]> => {
+  const res = await fetch("/public/data/data.json");
+  const data = await res.json();
+  return data;
+};
+
+
 
 function App() {
+
+  const [TechnologiesPromise] = useState(() => techStackFetch());
   return (
     <>
       <Navbar/>
       <Banner/>
       <main>
-        
+        <Suspense fallback={<h1 className="flex justify-center ">loading....</h1>}>
+            <Technologies TechnologiesPromise={TechnologiesPromise} />
+        </Suspense>
       </main>
     </>
   );

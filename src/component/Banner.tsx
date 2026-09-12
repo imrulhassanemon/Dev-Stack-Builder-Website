@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 export default function Banner() {
   return (
     <section className="w-full mt-10  bg-white">
-      <div className="mx-auto flex min-h-95  max-w-5/6 flex-col items-center justify-between gap-10 px-6 py-12 lg:flex-row lg:px-10">
+      <div className="mx-auto flex min-h-95  max-w-5/6 flex-col items-center justify-between gap-10  py-12 lg:flex-row ">
 
         {/* Left Content */}
         <div className="max-w-2xl">
