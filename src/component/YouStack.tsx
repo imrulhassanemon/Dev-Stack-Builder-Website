@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { Technology } from "../types/types";
 import { X } from "lucide-react";
+import { toast } from 'react-toastify';
 
 export interface YourStackProps {
   yourStack: Technology[];
@@ -10,14 +11,15 @@ export interface YourStackProps {
 export default function YourStack({ yourStack, setYourStack }: YourStackProps) {
   const removeAll = () => {
     setYourStack([]);
+    toast.success("Removed All Element")
+
   };
 
   const removeTechnology = (id: number) => {
     const remainig = [...yourStack].filter((tech) => tech.id !== id);
     setYourStack(remainig);
+    toast.success("Removed from your list")
   };
-
-  console.log(yourStack);
 
   return (
     <div className="rounded-3xl bg-white p-6 shadow-sm">

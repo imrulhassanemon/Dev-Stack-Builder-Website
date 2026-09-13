@@ -72,7 +72,7 @@ export default function SkillCard({
       {/* Button */}
       <button
         onClick={handleYourStack}
-        className="mt-6 w-full rounded-xl bg-slate-950 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 group-hover:tracking-wide"
+        className="mt-6 w-full cursor-pointer rounded-xl bg-slate-950 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 group-hover:tracking-wide"
       >
         Add to Stack
       </button>
