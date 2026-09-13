@@ -3,6 +3,7 @@ import Banner from "./component/Banner";
 import Navbar from "./component/NavBar";
 import type { Technology } from "./types/types";
 import Technologies from "./component/Technologies";
+import { ToastContainer } from "react-toastify";
 
 const techStackFetch = async (): Promise<Technology[]> => {
   const res = await fetch("/public/data/data.json");
@@ -21,7 +22,8 @@ function App() {
       <Banner/>
       <main>
         <Suspense fallback={<h1 className="flex justify-center ">loading....</h1>}>
-            <Technologies technologiesPromise={technologiesPromise} />
+            <Technologies technologiesPromise={technologiesPromise}  />
+            <ToastContainer/>
         </Suspense>
       </main>
     </>

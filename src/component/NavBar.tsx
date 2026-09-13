@@ -3,11 +3,9 @@
 // }
 
 // export default function NavBar({ prop }: NavBarProps) {
-    
-//     return 
+
+//     return
 // }
-
-
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -20,7 +18,6 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50  w-full border-b border-gray-200 bg-white shadow-sm">
       <div className="mx-auto flex h-14 max-w-5/6 items-center justify-between ">
-        
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-md bg-linear-to-br from-purple-500 to-pink-500 text-xs font-bold text-white">

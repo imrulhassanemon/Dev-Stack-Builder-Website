@@ -3,34 +3,27 @@ import type { Technology } from "../types/types";
 import { X } from "lucide-react";
 
 export interface YourStackProps {
-    yourStack: Technology[];
-    setYourStack : Dispatch<SetStateAction<Technology[]>>;
-
+  yourStack: Technology[];
+  setYourStack: Dispatch<SetStateAction<Technology[]>>;
 }
 
 export default function YourStack({ yourStack, setYourStack }: YourStackProps) {
+  const removeAll = () => {
+    setYourStack([]);
+  };
 
-    const removeAll = () => {
-        setYourStack([])
-    }
+  const removeTechnology = (id: number) => {
+    const remainig = [...yourStack].filter((tech) => tech.id !== id);
+    setYourStack(remainig);
+  };
 
-    const removeTechnology = (id : number) => {
-        
-        const remainig = [...yourStack].filter((tech) => tech.id !== id)
-        setYourStack(remainig)
+  console.log(yourStack);
 
-    }
-
-    console.log(yourStack);
-
-    
-    return (
+  return (
     <div className="rounded-3xl bg-white p-6 shadow-sm">
       {/* Header */}
       <div className="mb-5">
-        <h2 className="text-2xl font-bold text-slate-800">
-          Your Stack
-        </h2>
+        <h2 className="text-2xl font-bold text-slate-800">Your Stack</h2>
 
         <p className="mt-1 text-sm text-slate-400">
           {yourStack.length === 0
@@ -44,9 +37,7 @@ export default function YourStack({ yourStack, setYourStack }: YourStackProps) {
       {/* Empty State */}
       {yourStack.length === 0 ? (
         <div className="flex  items-center justify-center rounded-2xl border border-dashed border-slate-200">
-          <p className="text-sm text-slate-400">
-            Your stack is empty.
-          </p>
+          <p className="text-sm text-slate-400">Your stack is empty.</p>
         </div>
       ) : (
         <>
@@ -59,7 +50,6 @@ export default function YourStack({ yourStack, setYourStack }: YourStackProps) {
               >
                 {/* Technology Info */}
                 <div className="flex items-center gap-3">
-                  
                   {/* Icon */}
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50">
                     <img

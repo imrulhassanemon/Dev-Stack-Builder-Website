@@ -1,28 +1,37 @@
 import type { Technology } from "../types/types";
 import type { Dispatch, SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 type SkillCardProps = {
   technology: Technology;
-  yourStack:Technology[];
-  setYourSack: Dispatch<SetStateAction<Technology[]>>;
+  yourStack: Technology[];
+  setYourStack: Dispatch<SetStateAction<Technology[]>>;
+  isSelected: boolean;
 };
 
-export default function SkillCard({ technology, setYourSack, yourStack }: SkillCardProps) {
-
-
-    const handleYourStack = () => {
-        if(yourStack.includes(technology)){
-            return 
-        }else{
-            const setStack = [...yourStack, technology]
-            setYourSack(setStack)
-        }
+export default function SkillCard({
+  technology,
+  setYourStack,
+  yourStack,
+  isSelected,
+}: SkillCardProps) {
+  const handleYourStack = () => {
+    // if(yourStack.includes(technology)){
+    //     return
+    // }
+    if (isSelected) {
+      return toast.error("You Already Added.");
+    } else {
+      const setStack = [...yourStack, technology];
+      setYourStack(setStack);
+      toast.success("Successfully Added");
     }
-
+  };
 
   return (
     <div className="group  rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Header */}
+
       <div className="mb-5 flex items-start justify-between">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50">
           <img

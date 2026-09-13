@@ -13,7 +13,7 @@ export default function Technologies({
 }: TechnologiesProps) {
   const allTechnologies = use(technologiesPromise);
 
-  const [yourStack, setYourSack] = useState<Technology[]>([]);
+  const [yourStack, setYourStack] = useState<Technology[]>([]);
 
   return (
     <>
@@ -33,19 +33,25 @@ export default function Technologies({
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* All Technologies */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
-            {allTechnologies.map((technology) => (
-              <TechCard
-                key={technology.id}
-                yourStack={yourStack}
-                setYourSack={setYourSack}
-                technology={technology}
-              />
-            ))}
+            {allTechnologies.map((technology) => {
+              const isSelected = yourStack.some(
+                (items) => items.id === technology.id,
+              );
+              return (
+                <TechCard
+                  key={technology.id}
+                  yourStack={yourStack}
+                  setYourStack={setYourStack}
+                  technology={technology}
+                  isSelected={isSelected}
+                />
+              );
+            })}
           </div>
 
           {/* Your Stack */}
           <div className="w-full lg:col-span-3">
-            <YourStack setYourStack={setYourSack} yourStack={yourStack} />
+            <YourStack setYourStack={setYourStack} yourStack={yourStack} />
           </div>
         </div>
       </div>
