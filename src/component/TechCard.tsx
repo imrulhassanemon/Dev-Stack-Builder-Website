@@ -16,9 +16,6 @@ export default function SkillCard({
   isSelected,
 }: SkillCardProps) {
   const handleYourStack = () => {
-    // if(yourStack.includes(technology)){
-    //     return
-    // }
     if (isSelected) {
       return toast.error("You Already Added.");
     } else {
@@ -27,7 +24,6 @@ export default function SkillCard({
       toast.success("Successfully Added");
     }
   };
-
   return (
     <div className="group  rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Header */}
@@ -72,9 +68,10 @@ export default function SkillCard({
       {/* Button */}
       <button
         onClick={handleYourStack}
+        
         className="mt-6 w-full cursor-pointer rounded-xl bg-slate-950 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 group-hover:tracking-wide"
       >
-        Add to Stack
+        {isSelected? "✓ Added to Stack": "Add to Stack"}
       </button>
     </div>
   );

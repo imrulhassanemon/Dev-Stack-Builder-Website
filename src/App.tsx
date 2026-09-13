@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 import Footer from "./component/Footer";
 
 const techStackFetch = async (): Promise<Technology[]> => {
-  const res = await fetch("/public/data/data.json");
+  const res = await fetch("/data/data.json");
   const data = await res.json();
   return data;
 };
