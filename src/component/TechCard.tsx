@@ -68,10 +68,11 @@ export default function SkillCard({
       {/* Button */}
       <button
         onClick={handleYourStack}
-        
-        className="mt-6 w-full cursor-pointer rounded-xl bg-slate-950 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 group-hover:tracking-wide"
+        className={`w-full bg-gray-950  rounded-xl mt-6 text-lg py-2 cursor-pointer ${
+          isSelected ? "bg-red-100 text-[#d81c7f] font-bold " : "text-white"
+        }`}
       >
-        {isSelected? "✓ Added to Stack": "Add to Stack"}
+        {isSelected ? "✓ Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );
